@@ -1,0 +1,76 @@
+{
+  "name": "munim",
+  "version": "0.0.1",
+  "public": true,
+  "dependencies": {
+    "axios": "1.4.0",
+    "concurrently": "6.2.1",
+    "crypto-js": "4.1.1",
+    "electron-is-dev": "2.0.0",
+    "electron-store": "8.0.1",
+    "electron-updater": "6.1.1",
+    "puppeteer": "20.8.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "5.0.1",
+    "wait-on": "6.0.0",
+    "web-vitals": "1.1.2"
+  },
+  "devDependencies": {
+    "electron": "25.3.0",
+    "electron-builder": "24.4.0"
+  },
+  "main": "public/main.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "live": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
+    "publish": "set GH_TOKEN=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 && npm run build && electron-builder -c.extraMetadata.main=build/main.js --win --publish always",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "local": "concurrently \" npm start\"  \"nodemon --exec electron .\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yash1236/Munim"
+  },
+  "build": {
+    "appId": "GST Utility",
+    "productName": "Munim GST Utility",
+    "nsis": {
+      "artifactName": "Munim GST Utility.exe",
+      "uninstallDisplayName": "Munim GST Utility"
+    },
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "icon": "./public/assets/images/gst_utility_logo.png"
+    },
+    "files": [
+      "helper/**/*"
+    ],
+    "extraResources": [
+      "resources/preload.js"
+    ]
+  },
+  "homepage": "./"
+}
